@@ -5,7 +5,7 @@ $(function () {
     atualizaTamanhoFrase();
     inicializaContadores();
     inicializaCronometro();
-    marcaBorda()
+    marcaBorda();
     botaoReinicia.click(reiniciaJogo);
 });
 
@@ -39,6 +39,7 @@ function inicializaCronometro() {
                 botaoReinicia.attr("disabled", false);
                 clearInterval(cronometroID);
                 campo.addClass("campo-desativado");
+                inserePlacar();
             }
         }, 1000);
     });
@@ -57,19 +58,33 @@ function marcaBorda() {
             campo.removeClass("campo-correto");
             campo.addClass("campo-errado");
         }
-        
+
     });
 }
 
 function reiniciaJogo() {
-    campo.attr("disabled", false);
-    botaoReinicia.attr("disabled", true);
-    campo.val("");
-    $("#contador-palavras").text(0);
-    $("#contador-caracteres").text(0);
-    $("#tempo-digitacao").text(tempoInicial);
-    inicializaCronometro();
-    campo.removeClass("campo-desativado");
-    campo.removeClass("campo-correto");
-    campo.removeClass("campo-errado");
+    if (campo.is('[disabled=disabled]')) {
+        campo.attr("disabled", false);
+        botaoReinicia.attr("disabled", true);
+        campo.val("");
+        $("#contador-palavras").text(0);
+        $("#contador-caracteres").text(0);
+        $("#tempo-digitacao").text(tempoInicial);
+        inicializaCronometro();
+        campo.removeClass("campo-desativado");
+        campo.removeClass("campo-correto");
+        campo.removeClass("campo-errado");
+    }
+}
+
+function inserePlacar() {
+    var placar = $(".placar");
+    var corpoTabla = placar.find("tbody");
+    var usuario = $("#nomeUsuario").val();
+    var numPalavras = $("#contador-palavras").text();
+    var linha = "<tr>" +
+        "<td>" + usuario + "</td>" +
+        "<td>" + numPalavras + "</td>" +
+        "</tr>";
+    corpoTabla.prepend(linha);
 }
