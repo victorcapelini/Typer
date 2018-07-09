@@ -51,6 +51,10 @@ function marcaBorda() {
         var digitado = campo.val();
         var comparavel = frase.substr(0, digitado.length);
 
+        console.log(digitado);
+        console.log(comparavel);
+        console.log(digitado.length);
+
         if (digitado == comparavel) {
             campo.removeClass("campo-errado");
             campo.addClass("campo-correto");
@@ -77,14 +81,3 @@ function reiniciaJogo() {
     }
 }
 
-function inserePlacar() {
-    var placar = $(".placar");
-    var corpoTabla = placar.find("tbody");
-    var usuario = $("#nomeUsuario").val();
-    var numPalavras = $("#contador-palavras").text();
-    var linha = "<tr>" +
-        "<td>" + usuario + "</td>" +
-        "<td>" + numPalavras + "</td>" +
-        "</tr>";
-    corpoTabla.prepend(linha);
-}
