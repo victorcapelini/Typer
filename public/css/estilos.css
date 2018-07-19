@@ -46,3 +46,8 @@ body{
 #botao-sync{
     float: right;
 }
+.selectize-input {
+    width: 150px;
+    height: 35px;
+    vertical-align: bottom;
+}

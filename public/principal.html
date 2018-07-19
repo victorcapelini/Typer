@@ -6,7 +6,12 @@
     <title>Typer</title>
     <link rel="stylesheet" href="css/libs/materialize.min.css">
     <link rel="stylesheet" href="css/libs/google-fonts.css">
+    <link rel="stylesheet" href="css/libs/selectize.default.css">
+    <link rel="stylesheet" href="slick/slick.css" />
+    <link rel="stylesheet" href="slick/slick-theme.css" />
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/index.css" />
+
 </head>
 
 <body>
@@ -14,8 +19,17 @@
         <h1 class="center">Typer</h1>
         <p class="frase center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
 
-        Nome:
-        <input id="nomeUsuario">
+        <div class="select-usuarios">
+            <div>
+                <p>Jogador: </p>
+            </div>
+            
+            <select id="usuarios">
+                <option value="Victor">Victor</option>
+                <option value="Mikaela">Mikaela</option>
+                <option value="Quint">Quint</option>
+            </select>
+        </div>
 
         <div class="center">
             <img src="img/spinner.gif" alt="Spinner" id="spinner">
@@ -83,6 +97,7 @@
     <script src="js/frase.js"></script>
     <script src="js/main.js"></script>
     <script src="js/placar.js"></script>
+    <script src="js/selectize.js"></script>
 </body>
 
 </html>

@@ -8,6 +8,10 @@ $(function () {
     marcaBorda();
     botaoReinicia.click(reiniciaJogo);
     atualizaPlacar();
+    $("#usuarios").selectize({
+        create: true,
+        sortField: 'text'
+    });
 });
 
 function atualizaTempoInicial(tempo) {
